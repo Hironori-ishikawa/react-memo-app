@@ -1,21 +1,66 @@
-.App {
+.title {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
-input[type="number"] {
-  padding: 5px;
-  margin-right: 10px;
+input[type="number"],
+[type="text"] {
+  padding: 10px;
+  margin-right: 20px;
+  width: 30%;
+  border-radius: 10px;
 }
 
-button {
-  padding: 5px 10px;
+.add-button {
+  padding: 10px 15px;
   background-color: #007bff;
   color: white;
   border: none;
+  border-radius: 100vh;
   cursor: pointer;
+  margin: 5px;
+  font-size: large;
 }
 
-button:hover {
+.delete-button {
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 100vh;
+  cursor: pointer;
+  margin: 5px;
+  font-size: large;
+}
+
+.add-button:hover {
   background-color: #0056b3;
+}
+
+.delete-button:hover {
+  background-color: orangered
+}
+
+.add-item {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.item-list {
+  margin: 3rem;
+  margin-bottom: 3rem;
+}
+
+input[type="checkbox"] {
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  -moz-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+
+.total {
+  margin: 30px;
 }
