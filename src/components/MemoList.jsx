@@ -1,4 +1,6 @@
 import React from "react";
+import { CiCircleMinus } from "react-icons/ci";
+import { CiCirclePlus } from "react-icons/ci";
 
 export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity }) => {
 
@@ -22,8 +24,11 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
           <div>
             <span>個数:{memo.quantity}</span>
           </div>
-          <button onClick={() => increaseQuantity(memo.id)}>+</button>
-          <button onClick={() => decreaseQuantity(memo.id)}>-</button>
+          <button
+            className="plus-button"
+            onClick={() => increaseQuantity(memo.id)}><CiCirclePlus /></button>
+          <button className="minus-button"
+            onClick={() => decreaseQuantity(memo.id)}><CiCircleMinus /></button>
         </div>
       ))}
     </div>

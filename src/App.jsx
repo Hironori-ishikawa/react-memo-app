@@ -3,6 +3,8 @@ import { MemoList } from "./components/MemoList";
 import { Header } from "./Header";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./App.css"
+import { FaPlusSquare } from "react-icons/fa";
+import { FaTrashCan } from "react-icons/fa6";
 
 
 const App = () => {
@@ -98,14 +100,14 @@ const App = () => {
         return memo;
       });
     });
-    setTotalItems((prevTotalItems) => prevTotalItems - 1); // アイテム数を減少
+    setTotalItems((prevTotalItems) => Math.max(1, prevTotalItems - 1)); // アイテム数を減少
     const memo = memos.find((memo) => memo.id === id);
-    setTotal((prevTotal) => prevTotal - memo.cash);
+    setTotal((prevTotal) => Math.max(memo.cash, prevTotal - memo.cash));
   };
 
 
   return (
-    <div className="">
+    <div>
       <div>
         <Header />
       </div>
@@ -126,9 +128,9 @@ const App = () => {
           ref={memoCashRef}
         />
         {/* アイテムの追加ボタン */}
-        <button className="add-button" onClick={handleAddMemo}>+</button>
+        <button className="add-button" onClick={handleAddMemo}><FaPlusSquare /></button>
         {/* アイテムの削除ボタン */}
-        <button className="delete-button" onClick={handleClear}>✖️</button>
+        <button className="delete-button" onClick={handleClear}><FaTrashCan /></button>
       </div>
 
       <div>
@@ -140,8 +142,8 @@ const App = () => {
         />
       </div>
       <div className="total">
-        <div>合計アイテム数: {totalItems}</div>
-        <div>合計金額: {total}</div>
+        <div className="total-items">合計アイテム数: {totalItems}</div>
+        <div className="total-cash">合計金額: ¥{total}</div>
       </div>
     </div>
   );

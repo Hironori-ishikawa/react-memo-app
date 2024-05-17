@@ -1,7 +1,13 @@
 .title {
+  border-bottom: 2px solid #cccccc;
+}
+
+.title-name {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large;
 }
 
 input[type="number"],
@@ -14,10 +20,9 @@ input[type="number"],
 
 .add-button {
   padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
+  background-color: white;
   border: none;
-  border-radius: 100vh;
+  border-radius: 50%;
   cursor: pointer;
   margin: 5px;
   font-size: large;
@@ -25,21 +30,20 @@ input[type="number"],
 
 .delete-button {
   padding: 10px 15px;
-  background-color: red;
-  color: white;
+  background-color: white;
   border: none;
-  border-radius: 100vh;
+  border-radius: 50%;
   cursor: pointer;
   margin: 5px;
   font-size: large;
 }
 
 .add-button:hover {
-  background-color: #0056b3;
+  background-color: lightgray;
 }
 
 .delete-button:hover {
-  background-color: orangered
+  background-color: lightgray;
 }
 
 .add-item {
@@ -48,7 +52,7 @@ input[type="number"],
 }
 
 .item-list {
-  margin: 3rem;
+  margin: 4rem;
   margin-bottom: 3rem;
 }
 
@@ -61,6 +65,33 @@ input[type="checkbox"] {
   transform: scale(1.4);
 }
 
+.plus-button {
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.minus-button {
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+
+
 .total {
-  margin: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  border-top: 2px solid #cccccc;
+}
+
+.total-items {
+  margin-left: 7rem;
+  margin-top: 20px;
+}
+
+.total-cash {
+  margin-left: 7rem;
+  margin-top: 5px;
 }

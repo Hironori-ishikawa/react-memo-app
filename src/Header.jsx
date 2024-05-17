@@ -1,13 +1,12 @@
 import React from 'react'
-import styles from "./App.css"
+
 
 export const Header = () => {
   return (
-    <div>
-      <div className='title'>
+    <div className='title'>
+      <div className='title-name'>
         React Memo App
       </div>
-
     </div>
   )
 }
