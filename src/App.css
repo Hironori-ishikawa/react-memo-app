@@ -10,12 +10,18 @@
   font-size: x-large;
 }
 
+.react-memo-app-title {
+  text-decoration: none;
+}
+
 input[type="number"],
 [type="text"] {
   padding: 10px;
   margin-right: 20px;
   width: 30%;
+  height: 30px;
   border-radius: 10px;
+  font-size: large;
 }
 
 .add-button {
@@ -56,6 +62,11 @@ input[type="number"],
   margin-bottom: 3rem;
 }
 
+.item-memo {
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
 input[type="checkbox"] {
   margin-top: 10px;
   width: 20px;
@@ -72,6 +83,11 @@ input[type="checkbox"] {
   background-color: white;
 }
 
+.plus-button:hover {
+  background-color: lightgray;
+  border-radius: 50%;
+}
+
 .minus-button {
   font-size: 30px;
   border: none;
@@ -79,7 +95,10 @@ input[type="checkbox"] {
   background-color: white;
 }
 
-
+.minus-button:hover {
+  background-color: lightgray;
+  border-radius: 50%;
+}
 
 .total {
   font-family: 'Courier New', Courier, monospace;
@@ -89,9 +108,11 @@ input[type="checkbox"] {
 .total-items {
   margin-left: 7rem;
   margin-top: 20px;
+  font-weight: bold;
 }
 
 .total-cash {
   margin-left: 7rem;
   margin-top: 5px;
+  font-weight: bold;
 }

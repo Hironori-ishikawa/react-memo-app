@@ -1,10 +1,12 @@
 import React, { useState, useRef } from "react";
 import { MemoList } from "./components/MemoList";
 import { Header } from "./Header";
+import { Total } from "./components/Total";
 import { v4 as uuidv4 } from "uuid";
-import styles from "./App.css"
-import { FaPlusSquare } from "react-icons/fa";
-import { FaTrashCan } from "react-icons/fa6";
+import styles from "./App.css";
+import { FaPlusSquare } from "react-icons/fa"; // react icon
+import { FaTrashCan } from "react-icons/fa6"; // react icon
+
 
 
 const App = () => {
@@ -16,12 +18,12 @@ const App = () => {
   const memoTitleRef = useRef();
   const memoCashRef = useRef();
 
+
   // メモを追加
   const handleAddMemo = () => {
-
     const title = memoTitleRef.current.value;
     // const cash = memoCashRef.current.value;
-    const cash = parseFloat(memoCashRef.current.value);
+    const cash = parseFloat(memoCashRef.current.value); // 浮動小数点に変換
 
     // もしtitleの入力がない場合はリターンで返す。
     // if (title === "") return;
@@ -51,7 +53,6 @@ const App = () => {
     const memo = newMemos.find((memo) => memo.id === id);
     memo.completed = !memo.completed;
     setMemos(newMemos);
-
     // チェックが入っている場合、金額を合計から減算
     if (memo.completed) {
       setTotal((prevTotal) => prevTotal - memo.cash * memo.quantity);
@@ -124,6 +125,7 @@ const App = () => {
         <input
           type="number"
           name="cash"
+          min="0"
           placeholder="金額"
           ref={memoCashRef}
         />
@@ -141,9 +143,8 @@ const App = () => {
           decreaseQuantity={decreaseQuantity} // 個数の減少
         />
       </div>
-      <div className="total">
-        <div className="total-items">合計アイテム数: {totalItems}</div>
-        <div className="total-cash">合計金額: ¥{total}</div>
+      <div>
+        <Total totalItems={totalItems} total={total} />
       </div>
     </div>
   );

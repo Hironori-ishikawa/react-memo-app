@@ -1,13 +1,14 @@
 import React from "react";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
+import { BsCashCoin } from "react-icons/bs";
 
 export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity }) => {
 
   return (
     <div className="item-list">
       {memos.map((memo) => (
-        <div key={memo.id}>
+        <div key={memo.id} className="item-memo">
           <div>
             <input
               type="checkbox"
@@ -19,7 +20,7 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
             <span>アイテム名:{memo.title}</span>
           </div>
           <div>
-            <span>金額:{memo.cash}</span>
+            <span>金額<BsCashCoin />:{memo.cash}</span>
           </div>
           <div>
             <span>個数:{memo.quantity}</span>

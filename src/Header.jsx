@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div className='title'>
       <div className='title-name'>
-        React Memo App
+        <a href='/' className='react-memo-app-title'>React Memo App</a>
       </div>
     </div>
   )
