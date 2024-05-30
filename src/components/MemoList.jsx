@@ -17,13 +17,13 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
             />
           </div>
           <div>
-            <span>アイテム名:{memo.title}</span>
+            <span>アイテム名: {memo.title}</span>
           </div>
           <div>
-            <span>金額<BsCashCoin />:{memo.cash}</span>
+            <span>金額<BsCashCoin />: {memo.cash}</span>
           </div>
           <div>
-            <span>個数:{memo.quantity}</span>
+            <span>個数: {memo.quantity}</span>
           </div>
           <button
             className="plus-button"

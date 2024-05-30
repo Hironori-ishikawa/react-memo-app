@@ -31,7 +31,7 @@ input[type="number"],
   border-radius: 50%;
   cursor: pointer;
   margin: 5px;
-  font-size: large;
+  font-size: x-large;
 }
 
 .delete-button {
@@ -41,7 +41,7 @@ input[type="number"],
   border-radius: 50%;
   cursor: pointer;
   margin: 5px;
-  font-size: large;
+  font-size: x-large;
 }
 
 .add-button:hover {
@@ -83,21 +83,11 @@ input[type="checkbox"] {
   background-color: white;
 }
 
-.plus-button:hover {
-  background-color: lightgray;
-  border-radius: 50%;
-}
-
 .minus-button {
   font-size: 30px;
   border: none;
   cursor: pointer;
   background-color: white;
-}
-
-.minus-button:hover {
-  background-color: lightgray;
-  border-radius: 50%;
 }
 
 .total {
@@ -109,10 +99,12 @@ input[type="checkbox"] {
   margin-left: 7rem;
   margin-top: 20px;
   font-weight: bold;
+  font-size: large;
 }
 
 .total-cash {
   margin-left: 7rem;
   margin-top: 5px;
   font-weight: bold;
+  font-size: large;
 }
