@@ -14,8 +14,6 @@ export const Memo = ({ memo, toggleMemo }) => {
           readOnly
           onChange={handleMemoClick} />
       </label>
-      <div>{memo.title}</div>
-      <div>{memo.cash}円</div>
     </div>
   )
 }

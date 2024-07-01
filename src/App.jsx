@@ -3,9 +3,7 @@ import { MemoList } from "./components/MemoList";
 import { Header } from "./Header";
 import { Total } from "./components/Total";
 import { v4 as uuidv4 } from "uuid";
-import styles from "./App.css";
-import { FaPlusSquare } from "react-icons/fa"; // react icon
-import { FaTrashCan } from "react-icons/fa6"; // react icon
+import './App.css';
 
 
 
@@ -17,7 +15,6 @@ const App = () => {
   const [totalItems, setTotalItems] = useState(0); // 合計アイテム数のState
   const memoTitleRef = useRef();
   const memoCashRef = useRef();
-
 
   // メモを追加
   const handleAddMemo = () => {
@@ -109,33 +106,41 @@ const App = () => {
 
   return (
     <div>
-      <div>
+      <div className="header">
         <Header />
       </div>
 
       <div className="add-item">
-        {/* タイトルの入力フォーム */}
-        <input
-          type="text"
-          name="title"
-          placeholder="アイテム"
-          ref={memoTitleRef}
-        />
-        {/* 金額の入力フォーム */}
-        <input
-          type="number"
-          name="cash"
-          min="0"
-          placeholder="金額"
-          ref={memoCashRef}
-        />
-        {/* アイテムの追加ボタン */}
-        <button className="add-button" onClick={handleAddMemo}><FaPlusSquare /></button>
-        {/* アイテムの削除ボタン */}
-        <button className="delete-button" onClick={handleClear}><FaTrashCan /></button>
+        <div className="input-form">
+          {/* タイトルの入力フォーム */}
+          <input
+            type="text"
+            name="title"
+            placeholder="アイテム"
+            ref={memoTitleRef}
+          />
+          {/* 金額の入力フォーム */}
+          <input
+            type="number"
+            name="cash"
+            min="0"
+            placeholder="金額"
+            ref={memoCashRef}
+          />
+        </div>
+
+        <div className="add-delete-button">
+          {/* アイテムの追加ボタン */}
+          <button className="add-button" onClick={handleAddMemo}>追加
+          </button>
+          {/* アイテムの削除ボタン */}
+          <button className="delete-button" onClick={handleClear}>削除
+          </button>
+        </div>
+
       </div>
 
-      <div>
+      <div className="memo-list">
         <MemoList
           memos={memos}
           toggleMemo={toggleMemo} // チェックボックス
