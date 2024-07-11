@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MemoList } from "./components/MemoList";
 import { Header } from "./Header";
 import { Total } from "./components/Total";
@@ -21,9 +21,7 @@ const App = () => {
   const [memoTitle, setMemoTitle] = useState("");
   const [memoCash, setMemoCash] = useState("");
   const [memoQuantity, setMemoQuantity] = useState(1);
-  const memoTitleRef = useRef();
-  const memoCashRef = useRef();
-  const memoQuantityRef = useRef();
+
 
   // 個別のメモを追加
   const handleAddMemo = () => {
