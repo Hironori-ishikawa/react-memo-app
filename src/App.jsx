@@ -125,26 +125,31 @@ const App = () => {
 
           <div className="input-cash">
             <label>金額</label>
-            <input
-              type="number"
-              name="cash"
-              min="0"
-              placeholder="100"
-              value={memoCash}
-              onChange={(e) => setMemoCash(e.target.value)}
-            />
+            <div className="input-cash-inner">
+              <input
+                type="number"
+                name="cash"
+                min="0"
+                placeholder="100"
+                value={memoCash}
+                onChange={(e) => setMemoCash(e.target.value)}
+              />
+              <p>円</p>
+            </div>
           </div>
 
           <div className="input-quantity">
             <label>個数</label>
-            <input
-              type="number"
-              name="quantity"
-              min="1"
-              placeholder="1"
-              value={memoQuantity}
-              onChange={(e) => setMemoQuantity(parseInt(e.target.value))}
-            />
+            <div className="input-quantity-inner">
+              <input
+                type="number"
+                name="quantity"
+                min="1"
+                placeholder="1"
+                value={memoQuantity}
+                onChange={(e) => setMemoQuantity(parseInt(e.target.value))}
+              />
+              <p>個</p></div>
           </div>
         </div>
 

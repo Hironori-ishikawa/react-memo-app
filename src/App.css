@@ -7,7 +7,7 @@
 .App {
   font-size: 18px;
   height: 100vh;
-  width: 960px;
+  width: 100%;
   font-family: Helvetica, '游ゴシック', 'Yu Gothic', 'YuGothic', 'HiraKakuProN-W3', 'メイリオ', 'Meiryo', sans-serif;
 }
 
@@ -50,7 +50,8 @@ input[type="number"],
 }
 
 .input-title,
-.input-cash {
+.input-cash,
+.input-quantity {
   height: 100px;
   width: 300px;
   text-align: justify;
@@ -58,6 +59,11 @@ input[type="number"],
 
 .p {
   display: block;
+}
+
+.input-cash-inner,
+.input-quantity-inner {
+  display: flex;
 }
 
 
@@ -84,13 +90,12 @@ input[type="number"],
   margin: 5px;
   font-size: 20px;
   background-color: bisque;
+  margin-left: auto;
 }
 
 .add-button:hover {
   background-color: lightblue;
 }
-
-.delete-button:hover {}
 
 .add-item {
   position: relative;
@@ -107,8 +112,6 @@ input[type="number"],
 }
 
 .item-list {
-  display: flex;
-  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
@@ -119,6 +122,7 @@ input[type="number"],
   background-color: bisque;
   padding: 20px;
   border-radius: 20px;
+  width: -webkit-fill-available;
 }
 
 input[type="checkbox"] {

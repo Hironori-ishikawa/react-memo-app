@@ -5,6 +5,13 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
 
   return (
     <div className="item-list">
+
+      <span>タイトル</span>
+
+      <span>金額</span>
+
+      <span>個数</span>
+
       {memos.map((memo) => (
         <div key={memo.id} className="item-memo">
           <input
