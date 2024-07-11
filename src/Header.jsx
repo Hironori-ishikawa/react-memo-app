@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div className='title'>
       <div className='title-name'>
-        <a href='/'>Cash Memo App</a>
+        <h1>Cash Memo App</h1>
       </div>
     </div>
   )

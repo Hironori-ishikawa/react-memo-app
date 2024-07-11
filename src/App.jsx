@@ -1,153 +1,172 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { MemoList } from "./components/MemoList";
 import { Header } from "./Header";
 import { Total } from "./components/Total";
 import { v4 as uuidv4 } from "uuid";
 import './App.css';
 
-
-
 const App = () => {
-  const [memos, setMemos] = useState([
-    // { id: "1", title: "Memo1", cash: "1000", completed: false }
-  ]);
-  const [total, setTotal] = useState(0); // 合計金額のState
-  const [totalItems, setTotalItems] = useState(0); // 合計アイテム数のState
+  const [memos, setMemos] = useState(() => {
+    const storedMemos = localStorage.getItem("memos");
+    return storedMemos ? JSON.parse(storedMemos) : [];
+  });
+  const [total, setTotal] = useState(() => {
+    const storedTotal = parseFloat(localStorage.getItem("total")) || 0;
+    return storedTotal;
+  });
+  const [totalItems, setTotalItems] = useState(() => {
+    const storedTotalItems = parseInt(localStorage.getItem("totalItems")) || 0;
+    return storedTotalItems;
+  });
+  const [memoTitle, setMemoTitle] = useState("");
+  const [memoCash, setMemoCash] = useState("");
+  const [memoQuantity, setMemoQuantity] = useState(1);
   const memoTitleRef = useRef();
   const memoCashRef = useRef();
+  const memoQuantityRef = useRef();
 
-  // メモを追加
+  // 個別のメモを追加
   const handleAddMemo = () => {
-    const title = memoTitleRef.current.value;
-    // const cash = memoCashRef.current.value;
-    const cash = parseFloat(memoCashRef.current.value); // 浮動小数点に変換
+    const title = memoTitle.trim();
+    const cash = parseFloat(memoCash);
+    const quantity = parseInt(memoQuantity);
 
-    // もしtitleの入力がない場合はリターンで返す。
-    // if (title === "") return;
-    if (!title || isNaN(cash)) return; // titleとcashに入力がない場合はリターンする
+    if (!title || isNaN(cash) || isNaN(quantity)) return;
 
-    // 入力した１つのオブジェクト
-    setMemos((prevMemos) => {
-      return [...prevMemos, {
-        id: uuidv4(),
-        title: title,
-        cash: cash,
-        quantity: 1, // 個数
-        completed: false // チェックボックス
-      }]
-    });
-    // 追加したらタイトルと金額のリセット
-    memoTitleRef.current.value = null;
-    memoCashRef.current.value = null;
+    const newMemo = {
+      id: uuidv4(),
+      title: title,
+      cash: cash,
+      quantity: quantity,
+      completed: false
+    };
 
-    setTotal((prevTotal) => prevTotal + cash); // 金額を増加
-    setTotalItems((prevTotalItems) => prevTotalItems + 1); // アイテム数を増加
+    setMemos((prevMemos) => [...prevMemos, newMemo]);
+    setTotal((prevTotal) => prevTotal + cash * quantity);
+    setTotalItems((prevTotalItems) => prevTotalItems + quantity);
+
+    // フォームの値をクリアする
+    setMemoTitle("");
+    setMemoCash("");
+    setMemoQuantity(1);
   };
 
-  // チェックボックスのチェックの有無
+  // メモの削除
+  const handleClear = () => {
+    const newMemos = memos.filter((memo) => !memo.completed);
+    setMemos(newMemos);
+  };
+
+  // 個数の増加
+  const increaseQuantity = (id) => {
+    setMemos((prevMemos) =>
+      prevMemos.map((memo) =>
+        memo.id === id ? { ...memo, quantity: memo.quantity + 1 } : memo
+      )
+    );
+    setTotalItems((prevTotalItems) => prevTotalItems + 1);
+    const memo = memos.find((memo) => memo.id === id);
+    setTotal((prevTotal) => prevTotal + memo.cash);
+  };
+
+  // 個数の減少
+  const decreaseQuantity = (id) => {
+    setMemos((prevMemos) =>
+      prevMemos.map((memo) =>
+        memo.id === id && memo.quantity > 1
+          ? { ...memo, quantity: memo.quantity - 1 }
+          : memo
+      )
+    );
+    setTotalItems((prevTotalItems) => Math.max(1, prevTotalItems - 1));
+    const memo = memos.find((memo) => memo.id === id);
+    setTotal((prevTotal) => Math.max(memo.cash, prevTotal - memo.cash));
+  };
+
+  // チェックボックスのトグル
   const toggleMemo = (id) => {
     const newMemos = [...memos];
     const memo = newMemos.find((memo) => memo.id === id);
     memo.completed = !memo.completed;
     setMemos(newMemos);
-    // チェックが入っている場合、金額を合計から減算
+
     if (memo.completed) {
       setTotal((prevTotal) => prevTotal - memo.cash * memo.quantity);
-      setTotalItems((prevTotalItems) => prevTotalItems - memo.quantity); // アイテム数を減少
+      setTotalItems((prevTotalItems) => prevTotalItems - memo.quantity);
     } else {
-      // チェックが外れている場合、金額を合計に加算
       setTotal((prevTotal) => prevTotal + memo.cash * memo.quantity);
-      setTotalItems((prevTotalItems) => prevTotalItems + memo.quantity); // アイテム数を増加);
+      setTotalItems((prevTotalItems) => prevTotalItems + memo.quantity);
     }
   };
 
-  // メモを削除
-  const handleClear = () => {
-    const newMemos = memos.filter((memo) => !memo.completed);
-    setMemos(newMemos);
-  }
-
-  // アイテムの増加
-  const increaseQuantity = (id) => {
-    setMemos((prevMemos) => {
-      return prevMemos.map((memo) => {
-        if (memo.id === id) {
-          return {
-            ...memo,
-            quantity: memo.quantity + 1
-          };
-        }
-        return memo;
-      });
-    });
-    setTotalItems((prevTotalItems) => prevTotalItems + 1); // アイテム数を増加
-    const memo = memos.find((memo) => memo.id === id);
-    setTotal((prevTotal) => prevTotal + memo.cash);
-  };
-
-  // アイテムの減少
-  const decreaseQuantity = (id) => {
-    setMemos((prevMemos) => {
-      return prevMemos.map((memo) => {
-        if (memo.id === id && memo.quantity > 1) {
-          return {
-            ...memo,
-            quantity: memo.quantity - 1
-          };
-        }
-        return memo;
-      });
-    });
-    setTotalItems((prevTotalItems) => Math.max(1, prevTotalItems - 1)); // アイテム数を減少
-    const memo = memos.find((memo) => memo.id === id);
-    setTotal((prevTotal) => Math.max(memo.cash, prevTotal - memo.cash));
-  };
-
+  // ローカルストレージにデータを保存
+  useEffect(() => {
+    localStorage.setItem("memos", JSON.stringify(memos));
+    localStorage.setItem("total", total.toString());
+    localStorage.setItem("totalItems", totalItems.toString());
+  }, [memos, total, totalItems]);
 
   return (
-    <div>
+    <div className="App">
       <div className="header">
         <Header />
       </div>
 
       <div className="add-item">
         <div className="input-form">
-          {/* タイトルの入力フォーム */}
-          <input
-            type="text"
-            name="title"
-            placeholder="アイテム"
-            ref={memoTitleRef}
-          />
-          {/* 金額の入力フォーム */}
-          <input
-            type="number"
-            name="cash"
-            min="0"
-            placeholder="金額"
-            ref={memoCashRef}
-          />
+          <div className="input-title">
+            <label>名前</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="りんご"
+              value={memoTitle}
+              onChange={(e) => setMemoTitle(e.target.value)}
+            />
+          </div>
+
+          <div className="input-cash">
+            <label>金額</label>
+            <input
+              type="number"
+              name="cash"
+              min="0"
+              placeholder="100"
+              value={memoCash}
+              onChange={(e) => setMemoCash(e.target.value)}
+            />
+          </div>
+
+          <div className="input-quantity">
+            <label>個数</label>
+            <input
+              type="number"
+              name="quantity"
+              min="1"
+              placeholder="1"
+              value={memoQuantity}
+              onChange={(e) => setMemoQuantity(parseInt(e.target.value))}
+            />
+          </div>
         </div>
 
         <div className="add-delete-button">
-          {/* アイテムの追加ボタン */}
-          <button className="add-button" onClick={handleAddMemo}>追加
-          </button>
-          {/* アイテムの削除ボタン */}
-          <button className="delete-button" onClick={handleClear}>削除
+          <button className="add-button" onClick={handleAddMemo}>
+            追加
           </button>
         </div>
-
       </div>
 
       <div className="memo-list">
         <MemoList
           memos={memos}
-          toggleMemo={toggleMemo} // チェックボックス
-          increaseQuantity={increaseQuantity} // 個数の増加
-          decreaseQuantity={decreaseQuantity} // 個数の減少
+          toggleMemo={toggleMemo}
+          increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
+          handleClear={handleClear}
         />
       </div>
+
       <div>
         <Total totalItems={totalItems} total={total} />
       </div>

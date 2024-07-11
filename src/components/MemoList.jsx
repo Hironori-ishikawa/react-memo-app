@@ -1,6 +1,7 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 
-export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity }) => {
+export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity, handleClear }) => {
 
   return (
     <div className="item-list">
@@ -23,6 +24,9 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
           </button>
           <button className="minus-button"
             onClick={() => decreaseQuantity(memo.id)}>-
+          </button>
+          {/* アイテムの削除ボタン */}
+          <button className="delete-button" onClick={handleClear}><FaTrash />
           </button>
         </div>
       ))}
