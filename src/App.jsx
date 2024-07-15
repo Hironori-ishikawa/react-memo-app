@@ -110,53 +110,60 @@ const App = () => {
         <Header />
       </div>
 
-      <div className="add-item">
-        <div className="input-form">
-          <div className="input-title">
-            <label>名前</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="りんご"
-              value={memoTitle}
-              onChange={(e) => setMemoTitle(e.target.value)}
-            />
-          </div>
-
-          <div className="input-cash">
-            <label>金額</label>
-            <div className="input-cash-inner">
+      <div className="add-item-box">
+        <div className="add-item">
+          <div className="input-form">
+            <div className="input-title">
+              <label>名前</label>
               <input
-                type="number"
-                name="cash"
-                min="0"
-                placeholder="100"
-                value={memoCash}
-                onChange={(e) => setMemoCash(e.target.value)}
+                type="text"
+                name="title"
+                placeholder="りんご"
+                value={memoTitle}
+                onChange={(e) => setMemoTitle(e.target.value)}
               />
-              <p>円</p>
             </div>
+
+            <div className="input-cash-quantity">
+              <div className="input-cash">
+                <label>金額</label>
+                <div className="input-cash-inner">
+                  <input
+                    type="number"
+                    name="cash"
+                    min="0"
+                    placeholder="100"
+                    value={memoCash}
+                    onChange={(e) => setMemoCash(e.target.value)}
+                  />
+                  <p>円</p>
+                </div>
+              </div>
+
+              <div className="input-quantity">
+                <label>個数</label>
+                <div className="input-quantity-inner">
+                  <input
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    placeholder="1"
+                    value={memoQuantity}
+                    onChange={(e) => setMemoQuantity(parseInt(e.target.value))}
+                  />
+                  <p>個</p>
+                </div>
+              </div>
+            </div>
+
+
           </div>
 
-          <div className="input-quantity">
-            <label>個数</label>
-            <div className="input-quantity-inner">
-              <input
-                type="number"
-                name="quantity"
-                min="1"
-                placeholder="1"
-                value={memoQuantity}
-                onChange={(e) => setMemoQuantity(parseInt(e.target.value))}
-              />
-              <p>個</p></div>
+          <div className="add-delete-button">
+            <button className="add-button" onClick={handleAddMemo}>
+              追加
+            </button>
           </div>
-        </div>
-
-        <div className="add-delete-button">
-          <button className="add-button" onClick={handleAddMemo}>
-            追加
-          </button>
         </div>
       </div>
 

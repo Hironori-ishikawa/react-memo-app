@@ -20,7 +20,7 @@
 
 .title {}
 
-.title-name a {
+.title-name h1 {
   color: #010000;
   text-decoration: none;
   font-size: 30px;
@@ -36,25 +36,41 @@ input[type="number"],
   padding: 10px;
   width: 80%;
   height: 25px;
-  border-radius: 25px;
+  border-radius: 20px;
   font-size: 18px;
   background-color: lightgrey;
   border: none;
   display: block;
 }
 
+
 .input-form {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
-  justify-content: center;
+  margin-left: 38px;
 }
 
 .input-title,
 .input-cash,
 .input-quantity {
   height: 100px;
-  width: 300px;
   text-align: justify;
+}
+
+.input-title {
+  width: 500px;
+}
+
+.input-cash-quantity {
+  display: flex;
+}
+
+.input-cash {
+  width: 200px;
+}
+
+.input-quantity {
+  width: 200px;
 }
 
 .p {
@@ -66,6 +82,14 @@ input[type="number"],
   display: flex;
 }
 
+.input-cash-inner {
+  width: 150px;
+}
+
+.input-quantity-inner {
+  width: 100px;
+}
+
 
 .add-delete-button {
   margin-bottom: 20px;
@@ -73,28 +97,20 @@ input[type="number"],
 
 .add-button {
   padding: 2px 10px 2px 10px;
-  background-color: lightskyblue;
+  background-color: cornflowerblue;
   color: white;
   border: none;
-  border-radius: 5%;
+  border-radius: 20px;
   cursor: pointer;
   margin: 5px;
   font-size: 20px;
+  width: 100px;
+  height: 40px;
 }
 
-.delete-button {
-  padding: 2px 10px 2px 10px;
-  border: none;
-  border-radius: 5%;
-  cursor: pointer;
-  margin: 5px;
-  font-size: 20px;
-  background-color: bisque;
-  margin-left: auto;
-}
 
 .add-button:hover {
-  background-color: lightblue;
+  background-color: lightskyblue;
 }
 
 .add-item {
@@ -111,19 +127,50 @@ input[type="number"],
   margin: 0 auto;
 }
 
+.item-list-title {
+  padding: 20px;
+  margin-left: 15px;
+  display: flex;
+}
+
+.item-list-title span {
+  width: 200px;
+}
+
 .item-list {
   margin-bottom: 20px;
 }
 
 .item-memo {
-  margin-left: 10px;
   margin-bottom: 20px;
   display: flex;
   background-color: bisque;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px;
-  width: -webkit-fill-available;
 }
+
+.item-memo-title,
+.list-span-title {
+  width: 500px;
+  margin-left: 10px;
+}
+
+.item-memo-cash,
+.list-span-cash {
+  width: 200px;
+}
+
+.memo-cash-inner {
+  width: 150px;
+  display: flex;
+}
+
+
+.item-memo-quantity,
+.list-span-quantity {
+  width: 100px;
+}
+
 
 input[type="checkbox"] {
   width: 20px;
@@ -133,10 +180,13 @@ input[type="checkbox"] {
 }
 
 span {
-  margin-left: 50px;
   font-size: 20px;
+  width: 200px;
 }
 
+.plus-minus-delete-button {
+  width: auto;
+}
 
 .plus-button,
 .minus-button {
@@ -145,12 +195,19 @@ span {
   cursor: pointer;
   color: white;
   background-color: bisque;
-  margin-left: 30px;
+  padding-left: 10px;
 }
 
 .plus-button:hover,
 .minus-button:hover {
   color: black;
+}
+
+.delete-button {
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: bisque;
 }
 
 .total {
@@ -160,17 +217,266 @@ span {
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
 }
 
 .total-items,
 .total-cash {
   margin-top: 20px;
   font-size: 20px;
-  display: flex;
+  width: 200px;
+}
+
+.total-cash {
+  margin-left: 545px;
 }
 
 .total-items dt,
 .total-cash dt {
-  font-size: 18px;
+  font-size: 15px;
+}
+
+
+
+/* レスポンシブデザイン */
+@media screen and (max-width:767px) {
+  .App {
+    font-size: 14px;
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica, '游ゴシック', 'Yu Gothic', 'YuGothic', 'HiraKakuProN-W3', 'メイリオ', 'Meiryo', sans-serif;
+  }
+
+  .header {
+    position: relative;
+    max-width: 767px;
+    margin: 0 auto;
+    border-bottom: 2px solid #cccccc;
+    height: 40px;
+  }
+
+  .title {}
+
+  .title-name h1 {
+    color: #010000;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input[type="number"],
+  [type="text"] {
+    padding: 5px;
+    width: 80%;
+    height: 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    background-color: lightgrey;
+    border: none;
+    display: block;
+  }
+
+
+  .input-form {
+    margin-bottom: 10px;
+    display: block;
+    margin-left: 0px;
+  }
+
+  .input-title,
+  .input-cash,
+  .input-quantity {
+    height: 100px;
+    text-align: justify;
+  }
+
+  .input-title {
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .input-cash-quantity {
+    display: flex;
+    height: 50px;
+  }
+
+  .input-cash {
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .input-quantity {
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 15%;
+  }
+
+  .p {
+    display: block;
+  }
+
+  .input-cash-inner,
+  .input-quantity-inner {
+    display: flex;
+  }
+
+  .input-cash-inner {
+    width: 150px;
+  }
+
+  .input-quantity-inner {
+    width: 100px;
+  }
+
+
+  .add-delete-button {
+    margin-bottom: 5px;
+  }
+
+  .add-button {
+    padding: 1px 5px 1px 5px;
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 18px;
+    width: 100px;
+    height: 35px;
+  }
+
+
+  .add-button:hover {
+    background-color: lightskyblue;
+  }
+
+  .add-item {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .memo-list {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .item-list-title {
+    padding: 5px;
+    margin-left: 25px;
+    display: flex;
+  }
+
+  .item-list-title span {
+    width: 200px;
+  }
+
+  .item-list {
+    margin-bottom: 20px;
+  }
+
+  .item-memo {
+    margin-bottom: 8px;
+    display: flex;
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .item-memo-title,
+  .list-span-title {
+    width: 125px;
+    margin-left: 5px;
+  }
+
+  .item-memo-cash,
+  .list-span-cash {
+    width: 80px;
+  }
+
+  .memo-cash-inner {
+    width: 150px;
+    display: flex;
+  }
+
+
+  .item-memo-quantity,
+  .list-span-quantity {
+    width: 50px;
+  }
+
+
+  input[type="checkbox"] {
+    width: 15px;
+    -moz-transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+
+  span {
+    font-size: 16px;
+  }
+
+  .plus-minus-delete-button {
+    width: auto;
+  }
+
+  .plus-button,
+  .minus-button {
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: bisque;
+    padding-left: 5px;
+    margin-left: 3px;
+  }
+
+  .plus-button:hover,
+  .minus-button:hover {
+    color: black;
+  }
+
+  .delete-button {
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: bisque;
+    margin-left: 3px;
+  }
+
+  .total {
+    border-top: 2px solid #cccccc;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+  }
+
+  .total-items,
+  .total-cash {
+    margin-top: 10px;
+    font-size: 18px;
+    width: 100px;
+  }
+
+  .total-cash {
+    margin-left: 160px;
+  }
+
+  .total-items dt,
+  .total-cash dt {
+    font-size: 14px;
+  }
 }
