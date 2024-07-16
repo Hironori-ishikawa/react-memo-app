@@ -6,12 +6,12 @@ export const Total = ({ totalItems, total }) => {
 
       <div className='total-cash'>
         <dt>合計金額</dt>
-        <dd>{total}円</dd>
+        <div>{total}円</div>
       </div>
 
       <div className='total-items'>
         <dt>合計個数</dt>
-        <dd>{totalItems}個</dd>
+        <div>{totalItems}個</div>
       </div>
 
     </div>

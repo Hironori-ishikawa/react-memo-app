@@ -18,7 +18,6 @@
   border-bottom: 2px solid #cccccc;
 }
 
-.title {}
 
 .title-name h1 {
   color: #010000;
@@ -254,7 +253,6 @@ span {
     height: 40px;
   }
 
-  .title {}
 
   .title-name h1 {
     color: #010000;
@@ -270,7 +268,7 @@ span {
   input[type="number"],
   [type="text"] {
     padding: 5px;
-    width: 80%;
+    width: 95%;
     height: 20px;
     border-radius: 15px;
     font-size: 14px;
@@ -294,7 +292,7 @@ span {
   }
 
   .input-title {
-    width: auto;
+    width: 100%;
     height: auto;
     margin-bottom: 10px;
   }
@@ -302,6 +300,7 @@ span {
   .input-cash-quantity {
     display: flex;
     height: 50px;
+    justify-content: space-between;
   }
 
   .input-cash {
@@ -314,7 +313,6 @@ span {
     width: auto;
     height: auto;
     margin-bottom: 10px;
-    margin-left: 15%;
   }
 
   .p {
@@ -373,7 +371,7 @@ span {
 
   .item-list-title {
     padding: 5px;
-    margin-left: 25px;
+    margin-left: 20px;
     display: flex;
   }
 
@@ -395,13 +393,17 @@ span {
 
   .item-memo-title,
   .list-span-title {
-    width: 125px;
+    width: 35%;
     margin-left: 5px;
   }
 
   .item-memo-cash,
   .list-span-cash {
-    width: 80px;
+    width: 20%;
+  }
+
+  .list-span-cash {
+    margin-left: 10px;
   }
 
   .memo-cash-inner {
@@ -412,7 +414,7 @@ span {
 
   .item-memo-quantity,
   .list-span-quantity {
-    width: 50px;
+    width: 10%;
   }
 
 
@@ -450,7 +452,7 @@ span {
   .delete-button {
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
     background-color: bisque;
     margin-left: 3px;
   }
@@ -468,11 +470,11 @@ span {
   .total-cash {
     margin-top: 10px;
     font-size: 18px;
-    width: 100px;
+    width: 20%;
   }
 
   .total-cash {
-    margin-left: 160px;
+    margin-left: 43%;
   }
 
   .total-items dt,
