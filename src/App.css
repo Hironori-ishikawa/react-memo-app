@@ -389,6 +389,7 @@ span {
     background-color: bisque;
     padding: 5px;
     border-radius: 10px;
+    height: 25px;
   }
 
   .item-memo-title,
@@ -414,7 +415,7 @@ span {
 
   .item-memo-quantity,
   .list-span-quantity {
-    width: 10%;
+    width: 13%;
   }
 
 
@@ -475,6 +476,11 @@ span {
 
   .total-cash {
     margin-left: 43%;
+    width: auto;
+  }
+
+  .total-items {
+    margin-left: 15px;
   }
 
   .total-items dt,
