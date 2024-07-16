@@ -432,6 +432,7 @@ span {
 
   .plus-minus-delete-button {
     width: auto;
+    display: flex;
   }
 
   .plus-button,
