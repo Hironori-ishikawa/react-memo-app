@@ -187,19 +187,30 @@ span {
   width: auto;
 }
 
-.plus-button,
-.minus-button {
+.plus-button {
   font-size: 30px;
   border: none;
   cursor: pointer;
-  color: white;
+  color: green;
   background-color: bisque;
   padding-left: 10px;
 }
 
-.plus-button:hover,
+.minus-button {
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  color: red;
+  background-color: bisque;
+  padding-left: 10px;
+}
+
+.plus-button:hover {
+  color: lawngreen;
+}
+
 .minus-button:hover {
-  color: black;
+  color: lightcoral;
 }
 
 .delete-button {
@@ -435,20 +446,32 @@ span {
     display: flex;
   }
 
-  .plus-button,
-  .minus-button {
+  .plus-button {
     font-size: 20px;
     border: none;
     cursor: pointer;
-    color: white;
+    color: green;
     background-color: bisque;
     padding-left: 5px;
     margin-left: 3px;
   }
 
-  .plus-button:hover,
+  .minus-button {
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    color: red;
+    background-color: bisque;
+    padding-left: 5px;
+    margin-left: 3px;
+  }
+
+  .plus-button:hover {
+    color: lawngreen;
+  }
+
   .minus-button:hover {
-    color: black;
+    color: lightcoral;
   }
 
   .delete-button {
