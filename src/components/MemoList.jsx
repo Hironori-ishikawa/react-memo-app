@@ -5,20 +5,7 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
 
   return (
     <div className="item-list">
-      <div className="item-list-title">
-        <div className="list-span-title">
-          <span>タイトル</span>
-        </div>
 
-        <div className="list-span-cash">
-          <span>金額</span>
-        </div>
-
-        <div className="list-span-quantity">
-          <span>個数</span>
-        </div>
-
-      </div>
 
       {memos.map((memo) => (
         <div key={memo.id} className="item-memo">
@@ -39,7 +26,7 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
             <span>{memo.quantity}個</span>
           </div>
 
-          <div className="plus-minus-delete-button">
+          <div className="plus-minus-button">
             <button
               className="plus-button"
               onClick={() => increaseQuantity(memo.id)}>+
@@ -47,10 +34,10 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
             <button className="minus-button"
               onClick={() => decreaseQuantity(memo.id)}>-
             </button>
-            {/* アイテムの削除ボタン */}
-            <button className="delete-button" onClick={handleClear}><FaTrash />
-            </button>
           </div>
+          {/* アイテムの削除ボタン */}
+          <button className="delete-button" onClick={handleClear}><FaTrash />
+          </button>
 
         </div>
       ))}

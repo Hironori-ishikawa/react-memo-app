@@ -154,16 +154,15 @@ const App = () => {
                   <p>個</p>
                 </div>
               </div>
+              <div className="add-delete-button">
+                <button className="add-button" onClick={handleAddMemo}>
+                  追加
+                </button>
+              </div>
             </div>
-
-
           </div>
 
-          <div className="add-delete-button">
-            <button className="add-button" onClick={handleAddMemo}>
-              追加
-            </button>
-          </div>
+
         </div>
       </div>
 

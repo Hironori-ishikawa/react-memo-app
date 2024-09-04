@@ -33,11 +33,11 @@ label {
 input[type="number"],
 [type="text"] {
   padding: 10px;
-  width: 80%;
+  width: 90%;
   height: 25px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 18px;
-  background-color: lightgrey;
+  background-color: whitesmoke;
   border: none;
   display: block;
 }
@@ -46,7 +46,8 @@ input[type="number"],
 .input-form {
   margin-bottom: 10px;
   display: flex;
-  margin-left: 38px;
+  margin-left: 50px;
+  justify-content: space-between;
 }
 
 .input-title,
@@ -57,7 +58,7 @@ input[type="number"],
 }
 
 .input-title {
-  width: 500px;
+  width: 435px;
 }
 
 .input-cash-quantity {
@@ -65,11 +66,11 @@ input[type="number"],
 }
 
 .input-cash {
-  width: 200px;
+  width: 175px;
 }
 
 .input-quantity {
-  width: 200px;
+  width: 140px;
 }
 
 .p {
@@ -86,12 +87,13 @@ input[type="number"],
 }
 
 .input-quantity-inner {
-  width: 100px;
+  width: 120px;
 }
 
 
 .add-delete-button {
-  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 50px;
 }
 
 .add-button {
@@ -118,6 +120,7 @@ input[type="number"],
   margin: 0 auto;
   text-align: center;
   margin-top: 20px;
+  border-bottom: 2px solid #cccccc;
 }
 
 .memo-list {
@@ -132,31 +135,30 @@ input[type="number"],
   display: flex;
 }
 
-.item-list-title span {
-  width: 200px;
-}
 
 .item-list {
   margin-bottom: 20px;
 }
 
 .item-memo {
+  margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
-  background-color: bisque;
+  background-color: lightgrey;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
-.item-memo-title,
-.list-span-title {
-  width: 500px;
-  margin-left: 10px;
+.item-memo:hover {
+  background-color: gray;
 }
 
-.item-memo-cash,
-.list-span-cash {
-  width: 200px;
+.item-memo-title {
+  width: 435px;
+}
+
+.item-memo-cash {
+  width: 175px;
 }
 
 .memo-cash-inner {
@@ -165,9 +167,9 @@ input[type="number"],
 }
 
 
-.item-memo-quantity,
-.list-span-quantity {
-  width: 100px;
+.item-memo-quantity {
+  width: auto;
+  margin-right: 15px;
 }
 
 
@@ -176,6 +178,8 @@ input[type="checkbox"] {
   -moz-transform: scale(1.4);
   -webkit-transform: scale(1.4);
   transform: scale(1.4);
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
 span {
@@ -183,7 +187,7 @@ span {
   width: 200px;
 }
 
-.plus-minus-delete-button {
+.plus-minus-button {
   width: auto;
 }
 
@@ -192,8 +196,7 @@ span {
   border: none;
   cursor: pointer;
   color: green;
-  background-color: bisque;
-  padding-left: 10px;
+  background-color: lightgrey;
 }
 
 .minus-button {
@@ -201,8 +204,7 @@ span {
   border: none;
   cursor: pointer;
   color: red;
-  background-color: bisque;
-  padding-left: 10px;
+  background-color: lightgrey;
 }
 
 .plus-button:hover {
@@ -217,11 +219,11 @@ span {
   border: none;
   cursor: pointer;
   font-size: 20px;
-  background-color: bisque;
+  background-color: lightgrey;
+  margin-left: auto;
 }
 
 .total {
-  border-top: 2px solid #cccccc;
   position: relative;
   max-width: 960px;
   margin: 0 auto;
@@ -279,11 +281,11 @@ span {
   input[type="number"],
   [type="text"] {
     padding: 5px;
-    width: 95%;
+    width: 97%;
     height: 20px;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 14px;
-    background-color: lightgrey;
+    background-color: whitesmoke;
     border: none;
     display: block;
   }
@@ -345,7 +347,7 @@ span {
 
 
   .add-delete-button {
-    margin-bottom: 5px;
+    padding-top: 20px;
   }
 
   .add-button {
@@ -353,12 +355,12 @@ span {
     background-color: cornflowerblue;
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     cursor: pointer;
-    margin: 5px;
-    font-size: 18px;
-    width: 100px;
-    height: 35px;
+    margin: 0px;
+    font-size: 16px;
+    width: 80px;
+    height: 30px;
   }
 
 
@@ -380,16 +382,6 @@ span {
     margin: 0 auto;
   }
 
-  .item-list-title {
-    padding: 5px;
-    margin-left: 20px;
-    display: flex;
-  }
-
-  .item-list-title span {
-    width: 200px;
-  }
-
   .item-list {
     margin-bottom: 20px;
   }
@@ -397,26 +389,21 @@ span {
   .item-memo {
     margin-bottom: 8px;
     display: flex;
-    background-color: bisque;
+    background-color: lightgrey;
     padding: 5px;
     border-radius: 10px;
     height: 25px;
   }
 
-  .item-memo-title,
-  .list-span-title {
+  .item-memo-title {
     width: 35%;
     margin-left: 5px;
   }
 
-  .item-memo-cash,
-  .list-span-cash {
+  .item-memo-cash {
     width: 20%;
   }
 
-  .list-span-cash {
-    margin-left: 10px;
-  }
 
   .memo-cash-inner {
     width: 150px;
@@ -424,8 +411,7 @@ span {
   }
 
 
-  .item-memo-quantity,
-  .list-span-quantity {
+  .item-memo-quantity {
     width: 13%;
   }
 
@@ -441,7 +427,7 @@ span {
     font-size: 16px;
   }
 
-  .plus-minus-delete-button {
+  .plus-minus-button {
     width: auto;
     display: flex;
   }
@@ -451,7 +437,7 @@ span {
     border: none;
     cursor: pointer;
     color: green;
-    background-color: bisque;
+    background-color: lightgrey;
     padding-left: 5px;
     margin-left: 3px;
   }
@@ -461,7 +447,7 @@ span {
     border: none;
     cursor: pointer;
     color: red;
-    background-color: bisque;
+    background-color: lightgrey;
     padding-left: 5px;
     margin-left: 3px;
   }
@@ -478,12 +464,11 @@ span {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    background-color: bisque;
+    background-color: lightgrey;
     margin-left: 3px;
   }
 
   .total {
-    border-top: 2px solid #cccccc;
     position: relative;
     max-width: 100%;
     margin: 0 auto;
