@@ -31,10 +31,13 @@ export const MemoList = ({ memos, toggleMemo, increaseQuantity, decreaseQuantity
               className="plus-button"
               onClick={() => increaseQuantity(memo.id)}>+
             </button>
+
+            {/* disabled(無効) memo.quantityが1以下の時非活性化する */}
             <button className="minus-button"
-              onClick={() => decreaseQuantity(memo.id)}>-
+              onClick={() => decreaseQuantity(memo.id)} disabled={memo.quantity <= 1}>-
             </button>
           </div>
+
           {/* アイテムの削除ボタン */}
           <button className="delete-button" onClick={handleClear}><FaTrash />
           </button>
