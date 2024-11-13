@@ -147,6 +147,8 @@ input[type="number"],
   background-color: lightgrey;
   padding: 10px;
   border-radius: 10px;
+  justify-content: center;
+  height: 30px;
 }
 
 .item-memo:hover {
